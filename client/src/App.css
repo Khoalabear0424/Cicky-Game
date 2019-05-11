@@ -1,3 +1,17 @@
 .App {
   text-align: center;
 }
+
+.row{
+  width: 100%;
+}
+
+.col-4{
+  color: white;
+  font-weight: bold;
+}
+
+img{
+  width: 200px;
+  height: 175px;
+}

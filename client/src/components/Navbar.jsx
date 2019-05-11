@@ -5,8 +5,14 @@ class Navbar extends Component {
     render() {
         return (
             <nav className="navbar navbar-dark bg-dark">
-                HELLO
-      </nav>);
+                <div className="container">
+                    <div className="row">
+                        <div className="col-4">Clicky Game</div>
+                        <div className="col-4">You Guessed Correctly!</div>
+                        <div className="col-4">Score: 1 | Top Score: 2</div>
+                    </div>
+                </div>
+            </nav>);
     }
 }
 
