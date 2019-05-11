@@ -38,20 +38,43 @@ class App extends Component {
       src: "https://i.pinimg.com/originals/af/6b/0c/af6b0cf1fc2c1711d49440f09530e7ab.jpg"
     }
     ],
+    score: {
+      highScore: 0,
+      currentScore: 0,
+      message: "Click an image to start playing!"
+    }
   }
 
   shuffle = (id, selectState) => {
     const { imgLinks } = this.state;
     imgLinks[id].select = !selectState;
     imgLinks.sort(() => Math.random() - 0.5);
+    this.calcScore(selectState)
     this.setState({ imgLinks })
+  }
+
+  calcScore = (selectState) => {
+    const { score } = this.state;
+    if (!selectState) {
+      score.currentScore++;
+      score.message = "You guessed correctly!"
+    } else {
+      score.highScore = score.currentScore
+      score.currentScore = 0;
+      score.message = "Game Over!"
+    }
+    this.setState({ score })
   }
 
 
   render() {
     return (
       <div className="App">
-        <Navbar />
+        <Navbar
+          highScore={this.state.score.highScore}
+          currentScore={this.state.score.currentScore}
+          message={this.state.score.message}
+        />
         <div className="container imageDisplay">
           {this.state.imgLinks.map((imgLink, index) =>
             <ImageBlock
