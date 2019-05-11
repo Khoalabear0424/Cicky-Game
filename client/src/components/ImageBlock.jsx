@@ -4,7 +4,7 @@ class ImageBlock extends Component {
     state = {}
     render() {
         return (
-            <img className="m-2" src={this.props.imgLinkSrc} alt="" />
+            <img className="m-2" onClick={() => { this.props.click(this.props.id) }} src={this.props.imgLinkSrc} alt="" />
         );
     }
 }

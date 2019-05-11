@@ -17,13 +17,19 @@ class App extends Component {
     ]
   }
 
+  click = (id) => {
+    console.log(id)
+  }
+
   render() {
     return (
       <div className="App">
         <Navbar />
         <div className="container imageDisplay">
-          {this.state.imgLinks.map(imgLink =>
+          {this.state.imgLinks.map((imgLink, index) =>
             <ImageBlock
+              id={index}
+              click={this.click}
               imgLinkSrc={imgLink}
             />
           )}</div>
