@@ -15,3 +15,8 @@ img{
   width: 200px;
   height: 175px;
 }
+
+.imageDisplay{
+  margin-top: 40px;
+  max-width: 960px !important;
+}
