@@ -40,10 +40,9 @@ class App extends Component {
     ],
   }
 
-  shuffle = (id) => {
-    console.log(id)
+  shuffle = (id, selectState) => {
     const { imgLinks } = this.state;
-    console.log(imgLinks)
+    imgLinks[id].select = !selectState;
     imgLinks.sort(() => Math.random() - 0.5);
     this.setState({ imgLinks })
   }
@@ -56,6 +55,7 @@ class App extends Component {
         <div className="container imageDisplay">
           {this.state.imgLinks.map((imgLink, index) =>
             <ImageBlock
+              select={imgLink.select}
               key={index}
               id={index}
               click={this.shuffle}
