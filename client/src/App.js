@@ -40,9 +40,14 @@ class App extends Component {
     ],
   }
 
-  click = (id) => {
+  shuffle = (id) => {
     console.log(id)
+    const { imgLinks } = this.state;
+    console.log(imgLinks)
+    imgLinks.sort(() => Math.random() - 0.5);
+    this.setState({ imgLinks })
   }
+
 
   render() {
     return (
@@ -53,7 +58,7 @@ class App extends Component {
             <ImageBlock
               key={index}
               id={index}
-              click={this.click}
+              click={this.shuffle}
               imgLinkSrc={imgLink.src}
             />
           )}</div>
